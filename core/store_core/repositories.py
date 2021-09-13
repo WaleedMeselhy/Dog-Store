@@ -76,6 +76,10 @@ class DefaultRepository(object):
             obj = self.model.from_alchemy(obj)
         return obj
 
+    def clear_all_data(self, gateway):
+        with gateway.session_scope() as session:
+            return gateway.clear_all_data(session, self.model.alchemy_model)
+
 
 class DogRepository(DefaultRepository):
     model = Dog

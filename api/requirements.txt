@@ -14,3 +14,4 @@ SQLAlchemy==1.2.11
 psycopg2-binary==2.8.4
 alembic==1.0.0
 sqlalchemy-utils==0.33.3
+pytest

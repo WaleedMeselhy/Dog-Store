@@ -109,6 +109,7 @@ class DBGateway(object):
         for k, v in params.items():
             setattr(obj, k, v)
         return obj
+
     @staticmethod
     def update_all(session, model, criterion, **kwargs):
         objs = session.query(model).filter_by(**criterion).update(kwargs, "fetch")
@@ -126,6 +127,10 @@ class DBGateway(object):
         session.flush()
         session.refresh(instance)
         return instance
+
+    @staticmethod
+    def clear_all_data(session, model):
+        return session.query(model).delete()
 
     @staticmethod
     def call_db_function(session, model, func_name, **params):
