@@ -3,7 +3,7 @@ FROM base as builder
 
 COPY ./api/requirements.txt /app/requirements.txt
 RUN apk update && \
-    apk add --virtual build-deps gcc python3-dev musl-dev && \
+    apk add --virtual build-deps build-base g++ gcc python3-dev musl-dev && \
     apk add --no-cache postgresql-dev bash && \
     # pip install --upgrade cython && \
     pip install --no-cache-dir --user -r /app/requirements.txt 

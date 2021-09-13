@@ -6,7 +6,7 @@ ENV PYTHONUNBUFFERED 1
 # depend on the build.sh script or volume mapping to add the core package
 COPY ./migrations/requirements.txt /tmp/requirements.txt
 RUN apk update && \
-    apk add --virtual build-deps gcc python3-dev musl-dev && \
+    apk add --virtual build-deps build-base g++ gcc python3-dev musl-dev && \
     apk add --no-cache postgresql-dev bash && \
     pip install --no-cache-dir -r /tmp/requirements.txt
 
