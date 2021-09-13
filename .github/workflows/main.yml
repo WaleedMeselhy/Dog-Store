@@ -17,8 +17,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    # Deploy the Docker image to the GKE cluster
-    - name: Deploy
+    - name: Run coverage
       # working-directory: ./k8s/overlays/staging
       run: |-
         ./run_docker_cov.sh
