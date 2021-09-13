@@ -1,0 +1,134 @@
+{
+	"info": {
+		"_postman_id": "7a844032-dba6-40b4-8cb7-532cdb03c878",
+		"name": "paymob",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create dog",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"dog_id\":\"dog_2\",\n    \"name\" : \"dog 1\",\n    \"age\" : 10,\n    \"breed\" : \"breed 1\",\n    \"price\" : 2,\n    \"available\":true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/dog/",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"dog",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get dog",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/dog/dog_1/",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"dog",
+						"dog_1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update dog",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"age\": 13,\n    \"breed\": \"breed 1\",\n    \"dog_id\": \"dog_1\",\n    \"name\": \"dog 1\",\n    \"price\": 2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/dog/dog_1/",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"dog",
+						"dog_1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create order",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"status\":\"New Order\",\n    \"dogs\":[{   \"age\": 10,\n    \"available\": true,\n    \"breed\": \"breed 1\",\n    \"dog_id\": \"dog_2\",\n    \"name\": \"dog 1\",\n    \"price\": 2\n}]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/order/",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"order",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get order",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/order/1/",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"order",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
