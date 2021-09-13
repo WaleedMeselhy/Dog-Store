@@ -1,0 +1,42 @@
+version: "3.3"
+
+services:
+
+  database:
+    container_name: store_postgres
+    image: postgres:10.5-alpine
+    restart: always
+    env_file: dev.env
+    ports:
+    - 0:5432:5432
+
+  api:
+    image: api
+    build:
+      context: ./
+      dockerfile: api/Dockerfile
+    env_file: dev.env
+    links:
+    - database
+    depends_on:
+    - database
+    - migration
+    ports:
+    - 5000:5000
+    # volumes:
+    # - core:/usr/local/lib/python3.6/site-packages/store_core
+    # - ./services/balance_viewer:/app
+
+  migration:
+    image: migrations
+    build:
+      context: ./
+      dockerfile: migrations/Dockerfile
+    env_file: dev.env
+    links:
+    - database
+    depends_on:
+    - database
+    command: alembic upgrade head
+    # command: tail -f /dev/null
+
