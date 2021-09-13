@@ -1,0 +1,24 @@
+name: Testing Pipeline
+
+on:
+  # Trigger the workflow on push or pull request,
+  # but only for the main branch
+  push:
+    branches:
+      - main
+
+
+jobs:
+  setup-build-publish-deploy:
+    name: Setup, Build, Publish, and Deploy
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    # Deploy the Docker image to the GKE cluster
+    - name: Deploy
+      # working-directory: ./k8s/overlays/staging
+      run: |-
+        ./run_docker_cov.sh

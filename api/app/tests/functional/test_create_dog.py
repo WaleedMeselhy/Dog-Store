@@ -1,7 +1,7 @@
 import json
 
 
-def test_login_page(test_client):
+def test_create_dog(test_client):
 
     response = test_client.post(
         "/dog/",
